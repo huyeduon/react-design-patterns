@@ -11,7 +11,9 @@ function App() {
     <>
       <ControlledModal
         shouldShow={shouldShowModal}
-        onRequestClose={() => setShouldShowModal(false)}
+        onRequestClose={() => {
+          setShouldShowModal(false);
+        }}
       >
         <h1>Hello</h1>
       </ControlledModal>
