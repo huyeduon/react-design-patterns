@@ -1,18 +1,24 @@
-import { SplitScreen } from './SplitScreen';
 import './App.css';
-const LeftHandComponent = () => {
-  return <h1 style={{ backgroundColor: 'green' }}>Left</h1>;
-};
+import { useState } from 'react';
+import { UncontrolledForm } from './UncontrolledForm';
+import { ControlledForm } from './ControlledForm';
+import { UncontrolledModal } from './UncontrolledModal';
+import { ControlledModal } from './ControlledModal';
 
-const RightHandComponent = () => {
-  return <h1 style={{ backgroundColor: 'red' }}>Right</h1>;
-};
 function App() {
+  const [shouldShowModal, setShouldShowModal] = useState(false);
   return (
-    <SplitScreen leftWeight={1} rightWeight={3}>
-      <LeftHandComponent />
-      <RightHandComponent />
-    </SplitScreen>
+    <>
+      <ControlledModal
+        shouldShow={shouldShowModal}
+        onRequestClose={() => setShouldShowModal(false)}
+      >
+        <h1>Hello</h1>
+      </ControlledModal>
+      <button onClick={() => setShouldShowModal(!shouldShowModal)}>
+        {shouldShowModal ? 'Hide Modal' : 'Show Modal'}
+      </button>
+    </>
   );
 }
 
