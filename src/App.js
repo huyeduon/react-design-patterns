@@ -1,19 +1,15 @@
-import { SplitScreen } from './SplitScreen';
 import './App.css';
-const LeftHandComponent = () => {
-  return <h1 style={{ backgroundColor: 'green' }}>Left</h1>;
-};
+import { UserInfo } from './UserInfo';
+import { withUser } from './withUser';
 
-const RightHandComponent = () => {
-  return <h1 style={{ backgroundColor: 'red' }}>Right</h1>;
-};
-function App() {
+const UserInfoWithLoader = withUser(UserInfo, '234');
+
+const App = () => {
   return (
-    <SplitScreen leftWeight={1} rightWeight={3}>
-      <LeftHandComponent />
-      <RightHandComponent />
-    </SplitScreen>
+    <>
+      <UserInfoWithLoader />
+    </>
   );
-}
+};
 
 export default App;
