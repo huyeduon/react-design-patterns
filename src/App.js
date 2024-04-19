@@ -1,13 +1,12 @@
 import './App.css';
 import { UserInfo } from './UserInfo';
 import { withUser } from './withUser';
-
-const UserInfoWithLoader = withUser(UserInfo, '234');
+import { UserInfoForm } from './UserInfoForm';
 
 const App = () => {
   return (
     <>
-      <UserInfoWithLoader />
+      <UserInfoForm />
     </>
   );
 };
